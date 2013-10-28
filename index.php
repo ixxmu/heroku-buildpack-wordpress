@@ -1,33 +1,3 @@
-<?php
-/*
-    File: index.php
-    Author: 管理员
-    Date: 2013.04.15
-    Usage: 小九机器人微信接口
-    论坛微信QQ群: 39161950(已满),39161950
-	小九官网： www.xiaojo.com
-	微信论坛： www.weixen.com
- */
-header("content-Type: text/html; charset=utf-8");
-require_once(dirname(__FILE__) . "/wechat.php");
-define("DEBUG", true);
-
-//这里为你的小九后台账号,不填不能正常回复！！！！
-$yourdb="jjliulangjj";
-$yourpw="xiaojiuwc0123";
-
-//下面为可选配置的选项
-define("TOKEN", "ixxmu");
-define("MOREN", "抱歉，我真的不知道肿么回答了，您可以用问*答*来教我");//丢包后默认回复
-define("FLAG", "@");//星标标识，默认为 @,用户对话里包含此标识则设置为星标，用于留言
-//配置结束
-
-$w = new Wechat(TOKEN, DEBUG);
-if (isset($_GET['echostr'])) 
-{
-    $w->valid();
-    exit();
-}
 
 //回复用户
 $w->reply("reply_cb");
